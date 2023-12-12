@@ -4,6 +4,7 @@ const CALCULAR = document.getElementById('Calcular');
 const ERROR = document.getElementById('error');
 const FLU = document.getElementById('flu');
 const MAN = document.getElementById('man');
+const metodo = document.getElementById("metodo")
 CALCULAR.addEventListener('click', () => {
     const DATO = peso.value
     console.log(peso.value)
@@ -12,13 +13,17 @@ CALCULAR.addEventListener('click', () => {
         let flujo;
         if (DATO >= 30) {
             let superficieCorporal = calcularSuperficieCorporal(DATO)
-            FLU.innerHTML=superficieCorporal*1500 + "cc/hr";
-            FLU.innerHTML+=superficieCorporal*2000 + "cc/hr";
+            FLU.innerHTML="<p>"+superficieCorporal*1500 + "cc/hr</p>";
+            FLU.innerHTML+="<p>"+superficieCorporal*2000 + "cc/hr</p>";
+            metodo.innerHTML="Superficie Corporal"
+            MAN.innerHTML=""
+
         } else {
             flujo = calcFlujo(DATO);
             let mantenimiento = flujo * 1.5;
             FLU.innerHTML = flujo + ' cc/hr';
             MAN.innerHTML = 'm+m/2 ' + mantenimiento + ' cc/hr';
+            metodo.innerHTML="Holliday-Segar"
         }
 
 
