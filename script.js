@@ -26,7 +26,7 @@ CALCULAR.addEventListener('click', () => {
             metodo.innerHTML="Holliday-Segar"
         }
 
-
+        metodo.style.display = "block";
         FLU.style.display = 'block';
         MAN.style.display = 'block';
     } else {
